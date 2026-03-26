@@ -1,0 +1,232 @@
+\documentclass[12pt, a4paper, oneside]{ctexart}
+\usepackage{amsmath, amsthm, amssymb, graphicx,amsfonts,stackrel}
+\usepackage[bookmarks=true, colorlinks, citecolor=blue, linkcolor=black]{hyperref}
+\usepackage{geometry}
+\usepackage{physics}
+\geometry{left=2.54cm, right=2.54cm, top=3.18cm, bottom=3.18cm}
+\pagestyle{empty}
+\newcommand{\iu}{\mathrm{i}}
+
+
+% 导言区
+
+\begin{document}
+	\begin{center}
+		\textbf{第一题}
+	\end{center}
+	
+	根据爱因斯坦理论，单位时间自发辐射、受激辐射、受激吸收的粒子数分别是：
+	$$
+	\begin{cases}
+		\abs{\dv{N_2}{t}}_{\mathrm{sp}} = N_2 A_{21} \\
+		\abs{\dv{N_2}{t}}_{\mathrm{st}} = N_2 B_{21} W(\nu) \\ 
+		\abs{\dv{N_1}{t}}_{\mathrm{st}} = N_1 B_{12} W(\nu),
+	\end{cases}
+	$$
+	平衡态时各能级粒子数不变，则有：
+	\begin{equation*}
+		\abs{\dv{N_2}{t}}_{\mathrm{sp}} + \abs{\dv{N_2}{t}}_{\mathrm{st}} = \abs{\dv{N_1}{t}}_{\mathrm{st}}	,	
+	\end{equation*}
+	代入表达式得：
+	\begin{equation}
+		N_2 A_{21} + N_2 B_{21} W(\nu) = N_1 B_{12} W(\nu).
+		\label{eq:number_relation}
+	\end{equation}
+	
+	$W(\nu)$是单位体积能量谱密度，根据之前已经得到的模式数，结合光子服从玻色分布，可得：
+	\begin{equation}
+		W(\nu) = \frac{8 \pi \nu^2}{c^3} \frac{1}{\mathrm{e}^{\frac{h\nu}{kT}} - 1} h\nu,
+		\label{eq:W(nu)}
+	\end{equation}
+	热平衡下，能级上粒子数分布服从：
+	\begin{equation}
+		\frac{N_2}{N_1} = \frac{g_2}{g_1} \mathrm{e}^{-\frac{h(\nu_2 - \nu_1)}{kT}} .
+		\label{eq:N2/N1}
+	\end{equation}
+	将\eqref{eq:W(nu)}式和\eqref{eq:N2/N1}代入\eqref{eq:number_relation}式并整理，可得：
+	\begin{equation*}
+		\frac{g_2}{g_1} A_{21} \qty(\mathrm{e}^{\frac{h\nu}{kT}} - 1) +\frac{g_2}{g_1} B_{21} \frac{8\pi h \nu^3}{c^3} =   B_{12} \frac{8\pi h \nu^3}{c^3} \mathrm{e}^{\frac{h\nu}{kT}},
+	\end{equation*}
+	进一步整理即得：
+	\begin{equation}
+		\frac{c^3}{8\pi h \nu^3} \qty(\mathrm{e}^{\frac{h\nu}{kT}} - 1) = \frac{B_{21}}{A_{21}} \qty(\frac{B_{12}}{B_{21}} \frac{g_1}{g_2}\mathrm{e}^{\frac{h\nu}{kT}} - 1).
+	\end{equation}
+	
+	\begin{center}
+		\textbf{第二题}
+	\end{center}
+	
+	吸收池吸收的物理机制是，吸收池内的原子受激吸收后跃迁到高能级，然后自发辐射将能量散射放出，所以能量损耗过程发生在自发辐射过程。考虑在很短的$\Delta t$内，$\Delta V$体积、$\Delta \omega$的极窄频率范围吸收的能量可表示为：
+	\begin{equation}
+		\Delta E = N_2 A_{21} \Delta t \Delta V F(\omega) \Delta \omega \hbar \omega,
+	\end{equation}
+	根据\eqref{eq:number_relation}式，自发辐射粒子数等于受激吸收粒子数减去受激辐射粒子数，得：
+	\begin{equation}
+		\Delta E = (N_1 - N_2) B W(\omega) \Delta t \Delta V F(\omega) \Delta \omega \hbar \omega,
+	\end{equation}
+	吸收的能量来源于入射光，因而入射光的能量减少$\Delta E$，光经过的区域才会与原子产生相互作用，故相互作用的入射光能量分布在$\Delta V$体积内，那么此区域光的能量密度变化为：
+	\begin{equation*}
+		\Delta u = -\frac{\Delta E}{\Delta V} = -(N_1 - N_2) B W(\omega) \Delta t F(\omega) \Delta \omega \hbar \omega,
+	\end{equation*}
+	入射光的光强即电磁波的平均能流密度：
+	\begin{equation}
+		I = \frac{c}{2n} \epsilon E^2  = \frac{c}{2n} u,
+	\end{equation}
+	那么光强变化可表示为：
+	\begin{equation}
+		\Delta I = -\frac{c}{2n}  (N_1 - N_2) B W(\omega) \Delta t F(\omega) \Delta \omega \hbar \omega,
+	\end{equation}
+	注意到，$W(\nu)$表示单位体积能量的谱密度，换句话说，就是能量密度的谱密度，所以，$W(\omega)\Delta \omega = u$，即得：
+	\begin{equation}
+		\pdv{I}{t} = -\frac{c}{2n} u  (N_1 - N_2)  B F(\omega) \hbar \omega = -(N_1 - N_2)  B F(\omega) \hbar \omega I,
+	\end{equation}
+	从而得到：
+	\begin{equation}
+		\pdv{I}{z}  = -(N_1 - N_2)  B F(\omega) \hbar \omega I \frac{n}{c}
+		\label{eq:dI/dt},
+	\end{equation}
+	在弱光条件下,$\frac{\hbar \omega}{kT} \ll 1$，$N1 \gg N2$，则有$N_1 - N_2 \approx N_1 \approx N$
+	，则有：
+	\begin{equation}
+		\pdv{I}{z}  = -N  B F(\omega) \hbar \omega I \frac{n}{c} = -\alpha(\omega) I,
+	\end{equation}
+	从而我们可以得到厚吸收池的朗伯-比尔定律：
+	\begin{equation}
+		I(z) = I_0 \mathrm{e}^{-\alpha z}.
+	\end{equation}
+	在强光条件下，不可以使用上文提到的近似，需采用原始形式\eqref{eq:dI/dt}式，此时$\alpha(\omega)$为：
+	\begin{equation}
+		\alpha(\omega) = (N_1 - N_2)  B F(\omega) \hbar \omega  \frac{n}{c},
+		\label{eq:alpha_qiangguang}
+	\end{equation}
+	在稳态下，有：
+	\begin{equation}
+		N_1 - N_2 = \frac{AN}{A + 2BW },
+		\label{eq:stable_N1-N2_formula}
+	\end{equation}
+	式\eqref{eq:stable_N1-N2_formula}的证明放在最后，
+	取$\widetilde{W} = A/2B$，则：
+	\begin{equation}
+		N_1 - N_2 = \frac{N}{1 + \frac{W}{\widetilde{W}} } = \frac{N}{1 + \frac{I}{I_{\mathrm{sat}}} },
+		\label{eq:N1-N2_aboutI}
+	\end{equation}
+	将\eqref{eq:N1-N2_aboutI}式代回到\eqref{eq:alpha_qiangguang}式中，注意$\alpha_0 = NB F(\omega) \hbar \omega n/c$，就可以得到：
+	\begin{equation}
+		\alpha(\omega) = \alpha_0 \frac{1}{1 + \frac{I}{I_{\mathrm{sat}}} },
+	\end{equation}
+	则有：
+	\begin{align*}
+		-\frac{1}{I} \pdv{I}{z} &= \alpha_0 \frac{1}{1 + \frac{I}{I_{\mathrm{sat}}} } \\
+		-\frac{1}{T} \pdv{T}{z}  &= \alpha_0 \frac{1}{1 + I_0\frac{T}{I_{\mathrm{sat}}} } \\
+		-\frac{1}{T} \pdv{T}{z} - \frac{I_0}{I_{\mathrm{sat}}} \pdv{T}{z} &= \alpha_0 \\
+		-\frac{1}{T} \mathrm{d}T - \frac{I_0}{I_{\mathrm{sat}}} \mathrm{d}T &= \alpha_0 \mathrm{d}z,
+	\end{align*}
+	对上式做积分：
+	\begin{align*}
+		\int_{1}^{T} \qty(-\frac{1}{T'}  - \frac{I_0}{I_{\mathrm{sat}}}) \mathrm{d}T' &= \int_{0}^{L} \alpha_0 \mathrm{d}z \\
+		- \ln T - \frac{I_0}{I_{\mathrm{sat}}}T + \frac{I_0}{I_{\mathrm{sat}}} &= \alpha_0 L,
+	\end{align*}
+	注意到$\alpha_0L = -\ln T_0$，即得：
+	\begin{equation}
+		\ln(\frac{T}{T_0}) = \frac{I_0}{I_{\mathrm{sat}}}(1-T).
+	\end{equation}
+	
+	\begin{footnotesize}
+		这部分对\eqref{eq:stable_N1-N2_formula}进行补充证明,首先有：
+		$$
+		\begin{cases}
+			\dv{N_2}{t} = \abs{\dv{N_1}{t}}_{\mathrm{st}} - \abs{\dv{N_2}{t}}_{\mathrm{sp}} -\abs{\dv{N_2}{t}}_{\mathrm{st}} \\
+			\dv{N_1}{t} = \abs{\dv{N_2}{t}}_{\mathrm{sp}} +\abs{\dv{N_2}{t}}_{\mathrm{st}}  - \abs{\dv{N_1}{t}}_{\mathrm{st}}
+		\end{cases},
+		$$
+		即：
+		$$
+		\begin{cases}
+			\dv{N_2}{t} = BWN_1 - AN_2 - BWN_2 \\
+			\dv{N_1}{t} = AN_2 + BWN_2 - BWN_1
+		\end{cases},
+		$$
+		根据$N_1+N_2 = N$，替换式中的变量，最后可以得到：
+		$$
+		\begin{cases}
+			\dv{N_2}{t} = BWN - 2BWN_2 - AN_2 \\
+			\dv{N_1}{t} = (A+BW)N - AN_1 - 2BWN_1
+		\end{cases},
+		$$
+		积分，并根据初始条件$N_1(0) = N,N_2(0) = 0$，得到：
+		$$
+		\begin{cases}
+			N_2 = \frac{BWN}{A+2BW} \qty{1 - \exp\qty[-(A+2BW)t]} \\
+			N_1 = \frac{BWN}{A+2BW} \exp\qty[-(A+2BW)t] + \frac{(A+BW)N}{A+2BW}
+		\end{cases},
+		$$
+		则可得到稳态时,
+		$$
+		\begin{cases}
+			N_2 = \frac{BWN}{A+2BW} \\
+			N_1 = \frac{(A+BW)N}{A+2BW}
+		\end{cases},
+		$$
+		相减即得式\eqref{eq:stable_N1-N2_formula}.
+	\end{footnotesize}
+	
+	\begin{center}
+		\textbf{第三题}
+	\end{center}
+	
+	将系统波函数写作$\ket{\Psi}$，可展开为$\ket{\Psi} = c_1 \ket{\Psi_1} + c_2 \ket{\Psi_2}$，其中$\ket{\Psi_1} = \ket{\psi_1} \mathrm{e}^{-\mathrm{i}\omega_1t}$，$\ket{\Psi_2}$同理，则有：
+	$$
+	\begin{cases}
+		c_1  = \braket{\Psi_1}{\Psi} \\ 
+		c_2  = \braket{\Psi_2}{\Psi}
+	\end{cases},
+	$$
+	则：
+	\begin{align*}
+		\pdv{c_1}{t} &= \qty(\pdv{t} \bra{\Psi_1} ) \ket{\Psi} + \bra{\Psi_1} \qty(\pdv{t}\ket{\Psi}) \\
+		&= \mathrm{i} \omega_1 \braket{\Psi_1}{\Psi} - \frac{\iu}{\hbar} \bra{\Psi_1}H\ket{\Psi} \\
+		& = \iu \omega_1 c_1 - \frac{\iu}{\hbar} c_1 \bra{\Psi_1}H\ket{\Psi_1} -\frac{\iu}{\hbar} c_2 \bra{\Psi_1}H\ket{\Psi_2},
+	\end{align*}
+	$\ket{\Psi_1}$和$\ket{\Psi_2}$是$H_0$的本征态，本征值分别为$\hbar\omega_1$和$\hbar\omega_2$，故有：
+	\begin{equation*}
+		H_0 \ket{\Psi_i}  = \hbar\omega_i \ket{\Psi_i} \qquad (i=1,2),
+	\end{equation*}
+	将哈密顿算符展开，并利用本征态之间的正交性可得:
+	\begin{equation}
+		\pdv{c_1}{t} = - \frac{\iu}{\hbar} \qty(c_1\bra{\Psi_1}H'\ket{\Psi_1} + c_2 \bra{\Psi_1}H'\ket{\Psi_2}),
+	\end{equation}
+	同理可得:
+	\begin{equation}
+		\pdv{c_2}{t} = - \frac{\iu}{\hbar} \qty(c_2\bra{\Psi_2}H'\ket{\Psi_2} + c_1 \bra{\Psi_2}H'\ket{\Psi_1}),
+	\end{equation}
+	定义：
+	\begin{equation*}
+		V_{ij} = \bra{\psi_i}H'\ket{\psi_j} ,\quad \omega_{ij} = \omega_i - \omega_j,   \qquad (i,j = 1,2)
+	\end{equation*}
+	代入前两式即可得到：
+	\begin{equation}
+		\pdv{c_1(t)}{t} = -\frac{\iu}{\hbar} \qty[c_1(t)V_{11}+c_2(t)V_{12}\mathrm{e}^{\iu \omega_{12}t}],		
+	\end{equation}
+	\begin{equation}
+		\pdv{c_2(t)}{t} = -\frac{\iu}{\hbar} \qty[c_2(t)V_{22}+c_1(t)V_{21}\mathrm{e}^{-\iu \omega_{12}t}],
+	\end{equation}
+	由于$H' = -e\vb{r}E_0 \cos \omega t = -e\vb{r}E $是奇宇称算符，故$V_{11}$和$V_{22}$中被积函数为奇宇称，故$V_{11} = V_{22} = 0$，则前两式可化简为：
+	\begin{equation}
+		\pdv{c_1(t)}{t} = -\frac{\iu}{\hbar} c_2(t) D_{12}\mathrm{e}^{\iu \omega_{12}t} E_0 \cos \omega t,
+	\end{equation}
+	\begin{equation}
+		\pdv{c_2(t)}{t} = -\frac{\iu}{\hbar} c_1(t) D_{21}\mathrm{e}^{-\iu \omega_{12}t} E_0 \cos \omega t,
+	\end{equation}
+	其中$D_{12} = \bra{\psi_1}-e \vb{r} \ket{\psi_2} $ ，$D_{21} = \bra{\psi_2}-e \vb{r} \ket{\psi_1}. $
+	
+	定义拉比频率$\Omega_{12} = D_{12}E_0/\hbar = \Omega_{21}^*$ ，并将余弦函数写作指数形式，即可得到：
+	\begin{equation}
+		\pdv{c_1(t)}{t}  = -\frac{\iu}{2} \Omega_{12} \qty[ \mathrm{e}^{ \iu ( \omega - \omega_{21})t }  + \mathrm{e}^{- \iu ( \omega + \omega_{21})t } ]c_2(t).
+	\end{equation}
+	\begin{equation}
+		\pdv{c_2(t)}{t}  = -\frac{\iu}{2} \Omega_{21} \qty[ \mathrm{e}^{- \iu ( \omega - \omega_{21})t }  + \mathrm{e}^{ \iu ( \omega + \omega_{21})t } ]c_1(t).
+	\end{equation}
+	
+	
+	
+\end{document}
