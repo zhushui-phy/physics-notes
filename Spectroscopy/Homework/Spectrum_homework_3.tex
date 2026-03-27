@@ -1,0 +1,120 @@
+\documentclass[12pt, a4paper, oneside]{ctexart}
+\usepackage{amsmath, amsthm, amssymb, graphicx,amsfonts,stackrel}
+\usepackage[bookmarks=true, colorlinks, citecolor=blue, linkcolor=black]{hyperref}
+\usepackage{geometry}
+\usepackage{physics}
+\usepackage{mathtools}
+\usepackage{array}
+\geometry{left=2.54cm, right=2.54cm, top=3.18cm, bottom=3.18cm}
+\pagestyle{empty}
+\newcommand{\iu}{\mathrm{i}}
+\newcommand{\sq}[1]{%
+	\parbox[c][2.4em][c]{2.4em}{\centering $#1$}%
+}
+
+% 导言区
+
+\begin{document}
+	\begin{center}
+		\textbf{第一题}
+	\end{center}
+	
+	在导出自旋轨道耦合作用能前，先导出电子感受到的有效磁场，将电子视作静止，原子核绕电子转动，电子处感受到的磁场为：
+	\begin{equation}
+		\vb{B}_{\mathrm{eff}} = \frac{\mu_0 }{4 \pi }  \frac{e \vb{v} \times \vb{r}}{r^3}
+	\end{equation}
+	其中$\vb{r}$是原子核指向电子的径矢。
+	又有：
+	\begin{equation*}
+		\vb{E} = \frac{e\vb{r}}{4\pi \epsilon_0 r^3}
+	\end{equation*}
+	则：
+	\begin{equation}
+		\vb{B}_{\mathrm{eff}} = \frac{1}{c^2} \vb{v} \times \frac{e\vb{r}}{4\pi \epsilon_0 r^3} = \frac{1}{c^2} \vb{v} \times \vb{E}
+	\end{equation}
+	令电子的电势能为$V$，则电子感受到的电场可表为：
+	\begin{equation}
+		\vb{E} = \frac{1}{e} \dv{V}{r} \vb{e}_r
+	\end{equation}
+	电子的轨道角动量，注意相对速度关系$\vb{v} = -\vb{v'}$：
+	\begin{equation}
+		\vb{L} = \vb{r} \times m_e \vb{v'} = -\vb{r} \times m_e \vb{v}
+	\end{equation}
+	则：
+	\begin{equation}
+		\vb{B}_{eff} = \frac{1}{c^2 e} \dv{V}{r} \vb{v} \times \vb{e}_r = \frac{1}{c^2 e} \dv{V}{r} \frac{1}{m_e r} \vb{L} = \frac{1}{e m_e c^2} \frac{1}{r} \dv{V}{r} \vb{L}
+	\end{equation}
+	则自旋磁矩在该磁场下的相互作用能为：
+	\begin{equation}
+		E_{ls} = -\vb{m}_{s} \cdot \vb{B}_{\mathrm{eff}} = g_s \frac{e}{2 m_e} \vb{S} \cdot \vb{B}_{\mathrm{eff}} = \frac{1}{m^2_e c^2} \frac{1}{r} \dv{V}{r} \vb{S} \cdot \vb{L}
+	\end{equation}
+	这便是课件里的公式。
+	
+	由于$\dv{V}{r} = \frac{Ze^2}{4\pi \epsilon_0 r^2}$，则有：
+	\begin{equation}
+		\overline{E_{ls}} = \frac{1}{4\pi \epsilon_0} \frac{Ze^2}{m^2_e c^2} \overline{\qty(\frac{1}{r^3})} \overline{\vb{S}\cdot\vb{L}}
+	\end{equation} 
+	又有：
+	\begin{align*}
+		\overline{\qty(\frac{1}{r^3})} &= \frac{Z^3}{l(l+1/2)(l+1)n^3a_0^3} \\
+		\overline{\vb{S}\cdot\vb{L}} &= \frac{\hbar^2}{2} \qty[j(j+1) - l(l+1) -\frac{3}{4}]
+	\end{align*}
+	代入，并注意到$\alpha = \frac{e^2}{4\pi\epsilon_0} \frac{1}{\hbar c},\alpha a_0 = \frac{\hbar}{m_e c}$，化简可得：
+	\begin{equation}
+		E_{ls} = \frac{(\alpha Z)^4 m_e c^2}{2 n^3} \frac{j(j+1) - l(l+1) -3/4}{l(l+1/2)(l+1)}
+	\end{equation}
+	这与课件上的结果相差一半，查阅资料得知，按照经典理论，根据电子瞬时静止系导出的有效磁场来计算相互作用能，会比由量子力学导出的标准结果大一倍，它们相差一个Thomas因子$1/2$，补上这个Thomas因子后我们将得到正确的结果，由于暂时没有时间进一步研究，暂时先给出这个结果，留待后续进行补充。
+	
+	\begin{center}
+		\textbf{第二题}
+	\end{center}
+	
+	1.$\qquad 2s^2$：
+	$$
+	\prescript{1}{}{S_0}
+	$$
+	
+	2.$\qquad 2s2p$：
+	$$
+	\prescript{3}{}{P_{0,1,2}} , \prescript{1}{}{P_1}
+	$$
+	
+	3.$\qquad 2p3p$：
+	$$
+	\prescript{3}{}{D_{1,2,3}} , \prescript{1}{}{D_2} , \prescript{3}{}{P_{0,1,2}} , \prescript{1}{}{P_1},
+	\prescript{3}{}{S_1},\prescript{1}{}{S_0}
+	$$
+	
+	4.$\qquad 2p^4$:
+	
+	slater表格如下：
+	
+	\[
+	\begin{array}{|c|c|c|c|}
+	\hline
+	\sq{\scriptstyle M_L/M_S} & \sq{-1} & \sq{0} & \sq{1} \\
+	\hline
+	\sq{-3} & \sq{0} & \sq{0} & \sq{0} \\
+	\hline
+	\sq{-2} & \sq{0} & \sq{1} & \sq{0} \\
+	\hline
+	\sq{-1} & \sq{1} & \sq{2} & \sq{1} \\
+	\hline
+	\sq{0}  & \sq{1} & \sq{3} & \sq{1} \\
+	\hline
+	\sq{1}  & \sq{1} & \sq{2} & \sq{1} \\
+	\hline
+	\sq{2}  & \sq{0} & \sq{1} & \sq{0} \\
+	\hline
+	\sq{3}  & \sq{0} & \sq{0} & \sq{0} \\
+	\hline
+	\end{array}
+	\]
+	拆成三份子图，可写出光谱项：
+	$$
+	\prescript{3}{}{P_{0,1,2}} ,
+	\prescript{1}{}{S_0},\prescript{1}{}{D_2}
+	$$
+	
+\end{document}
+
